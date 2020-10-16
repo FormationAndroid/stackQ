@@ -9,7 +9,9 @@ import com.example.stackapp.models.Item
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_question.view.*
 
-class QuestionsAdapter(private val questions: List<Item>) : RecyclerView.Adapter<QuestionsAdapter.QuestionsViewHolder>(){
+class QuestionsAdapter() : RecyclerView.Adapter<QuestionsAdapter.QuestionsViewHolder>(){
+
+    private val questions = mutableListOf<Item>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): QuestionsViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -18,6 +20,12 @@ class QuestionsAdapter(private val questions: List<Item>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: QuestionsViewHolder, position: Int) {
         holder.bind(questions[position])
+    }
+
+    fun refreshData(newQuestions: List<Item>){
+        questions.clear()
+        questions.addAll(newQuestions)
+        notifyDataSetChanged()
     }
 
     override fun getItemCount() = questions.size
