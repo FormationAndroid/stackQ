@@ -19,16 +19,15 @@ class MainActivity : AppCompatActivity() {
         recyclerView.adapter = adapter
         updateData()
 
-
         btnRefresh.setOnClickListener {
             updateData()
         }
 
-
     }
 
 
-    fun updateData(){
+    private fun updateData(){
+
         retrofitClient.getLastQuestions().enqueue(object: retrofit2.Callback<LastQuestions>{
 
             override fun onResponse(call: Call<LastQuestions>, response: Response<LastQuestions>) {

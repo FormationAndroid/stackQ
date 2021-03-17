@@ -9,7 +9,7 @@ import com.example.stackapp.models.Item
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_question.view.*
 
-class QuestionsAdapter() : RecyclerView.Adapter<QuestionsAdapter.QuestionsViewHolder>(){
+class QuestionsAdapter : RecyclerView.Adapter<QuestionsAdapter.QuestionsViewHolder>(){
 
     private val questions = mutableListOf<Item>()
 
